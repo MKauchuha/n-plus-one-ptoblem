@@ -1,6 +1,7 @@
 package com.solbeg.nplusoneproblem.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -12,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "topic")
@@ -28,10 +29,12 @@ public class Topic {
     private String topicName;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private Set<Comment> comments;
 
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
-    private List<TargetedAdvertisement> advertisements;
+    private Set<TargetedAdvertisement> advertisements;
 }
