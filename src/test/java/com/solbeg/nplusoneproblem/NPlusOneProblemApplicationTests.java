@@ -18,7 +18,7 @@ import java.util.List;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(properties = {
-        "spring.liquibase.enabled=true"
+        "spring.liquibase.enabled=false"
 })
 @Import(TestConfig.class)
 class NPlusOneProblemApplicationTests {

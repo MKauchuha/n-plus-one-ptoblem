@@ -7,6 +7,7 @@ import lombok.ToString;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,10 +29,10 @@ public class Topic {
     private String topicName;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Comment> comments;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL/*, fetch = FetchType.EAGER*/) //uncomment and get org.hibernate.loader.MultipleBagFetchException exception
     private List<TargetedAdvertisement> advertisements;
 }
