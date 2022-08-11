@@ -1,8 +1,7 @@
 # Pet-project to show n + 1 Hibernate problem
-
-```
 Project contains several branches. Each branch contains implementation of a way to avoid n + 1 problem   
-```
+To check what is going on you just need to run NPlusOneProblemApplicationTests.shouldFetchAllTopics() in the debug mode and watch for the Hibernate SQL query output in the console and compare it between branches.
+
 
 ## What is n + 1 problem itself?
 It's a problem when hibernate executes too many queries to fetch a data for nested entities.
