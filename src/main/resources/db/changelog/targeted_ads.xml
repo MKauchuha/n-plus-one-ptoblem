@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro
+    http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+    ">
+
+
+    <changeSet id="create_Targeted_Ads_Table" author="Mikalai Kauchuha">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="targeted_ads"/>
+            </not>
+        </preConditions>
+        <createTable tableName="targeted_ads">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="topic_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ad_banner_url" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="targeted_ads"
+                                 baseColumnNames="topic_id"
+                                 constraintName="fk_targeted_ads_topic"
+                                 referencedTableName="topic"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>

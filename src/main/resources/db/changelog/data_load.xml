@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro
+    http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+    ">
+
+
+    <changeSet id="topic_data_load" author="Mikalai Kauchuha" runOnChange="true">
+        <loadData tableName="topic"
+                  file="data/topic.csv"
+                  relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="comment_data_load" author="Mikalai Kauchuha" runOnChange="true">
+        <loadData tableName="comment"
+                  file="data/comment.csv"
+                  relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="targeted_adss_data_load" author="Mikalai Kauchuha" runOnChange="true">
+        <loadData tableName="targeted_ads"
+                  file="data/targeted_ads.csv"
+                  relativeToChangelogFile="true" />
+    </changeSet>
+
+</databaseChangeLog>
