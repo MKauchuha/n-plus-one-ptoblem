@@ -12,6 +12,13 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
     ">
 
+
+    <property name="key_type" value="uuid" dbms="mysql"/>
+    <property name="key_type" value="bigint" dbms="mssql"/>
+
+    <property name="key_default_value" value="''" dbms="mysql"/>
+    <property name="key_default_value" value="(NEXT VALUE FOR seq_topic_id)" dbms="mssql"/>
+
     <include file="./topic.xml" relativeToChangelogFile="true"/>
     <include file="./comment.xml" relativeToChangelogFile="true"/>
     <include file="./targeted_ads.xml" relativeToChangelogFile="true"/>

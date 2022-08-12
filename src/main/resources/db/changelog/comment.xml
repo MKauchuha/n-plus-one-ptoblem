@@ -12,9 +12,8 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
     ">
 
-
-    <changeSet id="seq_comment_id_creation" author="Mikalai Kauchuha">
-        <preConditions>
+    <changeSet id="seq_comment_id_creation" author="Mikalai Kauchuha" dbms="mssql">
+        <preConditions onFail="MARK_RAN">
             <not>
                 <sequenceExists sequenceName="seq_comment_id"/>
             </not>
@@ -29,19 +28,19 @@
             </not>
         </preConditions>
         <createTable tableName="comment">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true"/>
+            <column name="id" type="${key_type}" defaultValueComputed="${key_default_value}">
+                <constraints primaryKey="true" unique="true" />
             </column>
-            <column name="topic_id" type="bigint">
+            <column name="topic_id" type="${key_type}">
                 <constraints nullable="false"/>
             </column>
             <column name="comment_text" type="text">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addDefaultValue tableName="comment"
-                         columnName="id"
-                         defaultValueSequenceNext="seq_comment_id" />
+<!--        <addDefaultValue tableName="comment"-->
+<!--                         columnName="id"-->
+<!--                         defaultValueSequenceNext="seq_comment_id" />-->
         <addForeignKeyConstraint baseTableName="comment"
                                  baseColumnNames="topic_id"
                                  constraintName="fk_comment_topic"

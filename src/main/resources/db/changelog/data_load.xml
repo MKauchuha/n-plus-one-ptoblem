@@ -13,19 +13,19 @@
     ">
 
 
-    <changeSet id="topic_data_load" author="Mikalai Kauchuha" runOnChange="true">
+    <changeSet id="topic_data_load" author="Mikalai Kauchuha" runOnChange="true" dbms="mssql">
         <loadData tableName="topic"
                   file="data/topic.csv"
                   relativeToChangelogFile="true" />
     </changeSet>
 
-    <changeSet id="comment_data_load" author="Mikalai Kauchuha" runOnChange="true">
+    <changeSet id="comment_data_load" author="Mikalai Kauchuha" runOnChange="true" dbms="mssql">
         <loadData tableName="comment"
                   file="data/comment.csv"
                   relativeToChangelogFile="true" />
     </changeSet>
 
-    <changeSet id="targeted_adss_data_load" author="Mikalai Kauchuha" runOnChange="true">
+    <changeSet id="targeted_adss_data_load" author="Mikalai Kauchuha" runOnChange="true" dbms="mssql">
         <loadData tableName="targeted_ads"
                   file="data/targeted_ads.csv"
                   relativeToChangelogFile="true" />

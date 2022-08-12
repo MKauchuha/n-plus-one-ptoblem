@@ -13,7 +13,7 @@
     ">
 
 
-    <changeSet id="seq_comment_id_modification" author="Mikalai Kauchuha">
+    <changeSet id="seq_comment_id_modification" author="Mikalai Kauchuha" dbms="mssql">
         <preConditions>
             <sequenceExists sequenceName="seq_comment_id"/>
         </preConditions>

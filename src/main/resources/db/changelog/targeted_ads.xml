@@ -21,9 +21,9 @@
         </preConditions>
         <createTable tableName="targeted_ads">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true"/>
+                <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="topic_id" type="bigint">
+            <column name="topic_id" type="${key_type}">
                 <constraints nullable="false"/>
             </column>
             <column name="ad_banner_url" type="varchar(255)">

@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  mssql:
+    container_name: mssql-npo
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    ports:
+      - "14333:1433"
+    environment:
+      SA_PASSWORD: MySecretePass3323
+      ACCEPT_EULA: Y
+
+  mysql:
+    container_name: mysql-npo
+    image: "mysql:5.7.31"
+    ports:
+      - "33066:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: MySecretePass3323

@@ -12,7 +12,7 @@
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
     ">
 
-    <changeSet id="seq_topic_id_creation" author="Mikalai Kauchuha">
+    <changeSet id="seq_topic_id_creation" author="Mikalai Kauchuha" dbms="mssql">
         <preConditions>
             <not>
                 <sequenceExists sequenceName="seq_topic_id"/>
@@ -28,17 +28,17 @@
             </not>
         </preConditions>
         <createTable tableName="topic">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true"/>
+            <column name="id" type="${key_type}" defaultValueComputed="${key_default_value}">
+                <constraints primaryKey="true" unique="true" />
             </column>
             <column name="topic_name" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addDefaultValue schemaName="dbo"
-                         tableName="topic"
-                         columnName="id"
-                         defaultValueSequenceNext="seq_topic_id"/>
+<!--        <addDefaultValue schemaName="dbo"-->
+<!--                         tableName="topic"-->
+<!--                         columnName="id"-->
+<!--                         defaultValueSequenceNext="seq_topic_id"/>-->
         <!--        <sql dbms="mssql" splitStatements="false">-->
         <!--            IF NOT EXISTS (SELECT 1 FROM sys.default_constraints WHERE name = 'SEQ_GEN_topic_id')-->
         <!--            BEGIN-->
