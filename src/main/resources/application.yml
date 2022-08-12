@@ -2,20 +2,24 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/changelog.xml
     enabled: true
-  datasource:
-    url: jdbc:sqlserver://localhost:14333;database=n_plus_one_demo_db;loginTimeout=30;trustServerCertificate=true;
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: sa
-    password: MySecretePass3323
 #  datasource:
-#    url: jdbc:mysql://localhost:33066/n_plus_one_demo_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    username: root
+#    url: jdbc:sqlserver://localhost:14333;database=n_plus_one_demo_db;loginTimeout=30;trustServerCertificate=true;
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    username: sa
 #    password: MySecretePass3323
+  datasource:
+    url: jdbc:mysql://localhost:33066/n_plus_one_demo_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: MySecretePass3323
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
   h2:
     console:
       enabled: true
