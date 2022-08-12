@@ -18,7 +18,7 @@
                 <sequenceExists sequenceName="seq_comment_id"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="seq_comment_id" startValue="0" incrementBy="1" />
+        <createSequence sequenceName="seq_comment_id" startValue="1000" incrementBy="1" />
     </changeSet>
 
     <changeSet id="create_Comment_Table" author="Mikalai Kauchuha">
