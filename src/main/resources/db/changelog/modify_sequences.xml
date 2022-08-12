@@ -17,7 +17,7 @@
         <preConditions>
             <sequenceExists sequenceName="seq_comment_id"/>
         </preConditions>
-        <alterSequence sequenceName="seq_comment_id" startValue="1000" incrementBy="100"/>
+        <alterSequence sequenceName="seq_comment_id" startValue="1000" incrementBy="1000"/>
     </changeSet>
 
 </databaseChangeLog>

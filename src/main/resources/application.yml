@@ -16,6 +16,10 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 1000
   h2:
     console:
       enabled: true

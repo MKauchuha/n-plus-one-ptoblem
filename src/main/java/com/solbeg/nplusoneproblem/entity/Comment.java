@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,9 +25,18 @@ public class Comment {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_comment_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentIdGenerator")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentIdGenerator")
 //    @SequenceGenerator(name = "commentIdGenerator", sequenceName = "seq_comment_id", allocationSize = 1)
+    @GenericGenerator(
+            name = "commentIdGenerator",
+            strategy = "enhanced-sequence",
+            parameters = {
+                    @Parameter(name = "sequence_name", value = "seq_comment_id"),
+                    @Parameter(name = "increment_size", value = "1000"),
+                    @Parameter(name = "optimizer", value = "pooled-lo")
+            }
+    )
     private Long id;
 
     @Column(name = "comment_text", nullable = false)

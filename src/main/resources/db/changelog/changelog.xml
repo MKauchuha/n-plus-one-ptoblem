@@ -23,6 +23,6 @@
     <include file="./comment.xml" relativeToChangelogFile="true"/>
     <include file="./targeted_ads.xml" relativeToChangelogFile="true"/>
     <include file="./data_load.xml" relativeToChangelogFile="true"/>
-<!--    <include file="./modify_sequences.xml" relativeToChangelogFile="true"/>-->
+    <include file="./modify_sequences.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
