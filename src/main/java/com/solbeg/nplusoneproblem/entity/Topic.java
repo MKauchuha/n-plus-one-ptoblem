@@ -3,6 +3,8 @@ package com.solbeg.nplusoneproblem.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,9 +31,11 @@ public class Topic {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Comment> comments;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<TargetedAdvertisement> advertisements;
 }
