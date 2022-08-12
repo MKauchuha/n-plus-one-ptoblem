@@ -218,7 +218,7 @@ There are 3 branches related to this problem:
 * persistence-failure-fixed-my-sql
 
 The persistence-failure branch is almost the same as the master one, but with extra tests added. Run all the tests, and you will see that some of them fail with an exception.
-Rest of branches contain fixes for appropriate DB engine and improvements persistence performance.<br>
+Rest of branches contain fixes for appropriate DB engine and improvements of persistence performance.<br>
 Both fixed branches have extra config with external proxy which allows to view how is the Hibernate deals with batch insert.
 <br><br>
 To read more about ideas and implementation please visit
