@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.id.enhanced.SequenceStyleGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,9 +33,9 @@ public class Comment {
             name = "commentIdGenerator",
             strategy = "enhanced-sequence",
             parameters = {
-                    @Parameter(name = "sequence_name", value = "seq_comment_id"),
-                    @Parameter(name = "increment_size", value = "1000"),
-                    @Parameter(name = "optimizer", value = "pooled-lo")
+                    @Parameter(name = SequenceStyleGenerator.SEQUENCE_PARAM, value = "seq_comment_id"),
+                    @Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1000"),
+                    @Parameter(name = SequenceStyleGenerator.OPT_PARAM, value = "pooled-lo")
             }
     )
     private Long id;
