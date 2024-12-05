@@ -15,14 +15,18 @@
 
     <property name="key_type" value="uuid" dbms="mysql"/>
     <property name="key_type" value="bigint" dbms="mssql"/>
+    <property name="key_type" value="bigint" dbms="postgresql"/>
 
     <property name="key_default_value" value="''" dbms="mysql"/>
     <property name="key_default_value" value="(NEXT VALUE FOR seq_topic_id)" dbms="mssql"/>
 
-    <include file="./topic.xml" relativeToChangelogFile="true"/>
-    <include file="./comment.xml" relativeToChangelogFile="true"/>
-    <include file="./targeted_ads.xml" relativeToChangelogFile="true"/>
-    <include file="./data_load.xml" relativeToChangelogFile="true"/>
-<!--    <include file="./modify_sequences.xml" relativeToChangelogFile="true"/>-->
+    <!--    <include file="./topic.xml" relativeToChangelogFile="true"/>-->
+    <!--    <include file="./comment.xml" relativeToChangelogFile="true"/>-->
+
+    <!--    <include file="./targeted_ads.xml" relativeToChangelogFile="true"/>-->
+    <!--    <include file="./data_load.xml" relativeToChangelogFile="true"/>-->
+    <!--    <include file="./modify_sequences.xml" relativeToChangelogFile="true"/>-->
+
+    <include file="./cached_persist.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

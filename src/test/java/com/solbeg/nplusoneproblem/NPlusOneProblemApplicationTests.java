@@ -27,6 +27,7 @@ class NPlusOneProblemApplicationTests {
 
     @Autowired
     TopicRepository topicRepository;
+
     @Autowired
     AdvertisementRepository advertisementRepository;
 

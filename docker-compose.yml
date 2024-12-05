@@ -1,19 +1,31 @@
 version: '3.7'
 
 services:
-  mssql:
-    container_name: mssql-npo
-    image: "mcr.microsoft.com/mssql/server:2017-latest"
-    ports:
-      - "14333:1433"
-    environment:
-      SA_PASSWORD: MySecretePass3323
-      ACCEPT_EULA: Y
+#  mssql:
+#    container_name: mssql-npo
+#    image: "mcr.microsoft.com/mssql/server:2017-latest"
+#    ports:
+#      - "14333:1433"
+#    environment:
+#      SA_PASSWORD: MySecretePass3323
+#      ACCEPT_EULA: Y
+#
+#  mysql:
+#    container_name: mysql-npo
+#    image: "mysql:5.7.31"
+#    ports:
+#      - "33066:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: MySecretePass3323
 
-  mysql:
-    container_name: mysql-npo
-    image: "mysql:5.7.31"
+  postgres:
+    container_name: postgres-npo
+    image: postgres
+    shm_size: 1G
+    restart: unless-stopped
     ports:
-      - "33066:3306"
+      - "2345:5432"
     environment:
-      MYSQL_ROOT_PASSWORD: MySecretePass3323
+      POSTGRES_DB: test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: MySecretePass3323
